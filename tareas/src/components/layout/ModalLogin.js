@@ -44,7 +44,7 @@ const ModalLogin = (props) => {
               <i className="far fa-smile-beam fa-10x"></i>
               <Div className="row pt-3 d-flex justify-content-center">
                 <H3 className="msje">
-                  ¡ BIENVENIDO<span> ... </span> !
+                  ¡ BIENVENIDO !
                 </H3>
               </Div>
             </Div>

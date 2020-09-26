@@ -1,10 +1,24 @@
 import React, { useContext, useEffect } from "react";
 import Tarea from "../tareas/Tarea";
+import { Redirect } from "react-router-dom";
 
 //Importanto el Context, que es quien comparte state y funciones a los de+
 import tareaContext from "../../../context/tareas/tareaContext";
 
+import usuarioContext from "../../../context/usuarios/usuarioContext";
+
+
+
+//importart context de usuario y comprobar que tenga valor para que renderice 
+//la lista de tareas
+
+
 const ListaTarea = () => {
+
+  const {
+    usuario
+  } = useContext(usuarioContext);
+
   const {
     listatareas,
     contenidobusqueda,
@@ -12,12 +26,22 @@ const ListaTarea = () => {
   } = useContext(tareaContext);
 
   useEffect(() => {
-    recuperarLista();
+    if(usuario.email !== ""){
+
+      recuperarLista();
+    }
     console.log("lista de tareas: ",listatareas);
+    console.log("usuario: ",usuario);
+
     // eslint-disable-next-line
   }, []);
+
+  if (usuario.email === "") {
+    //history.push("/tareas");
+    return <Redirect to="/" />
+  }
   
-  if (listatareas.length === 0) return "nada";
+  if (listatareas.length === 0) return "";
   //console.log("->> DATA CONVERITDA EN ARRAY", listatareas);
   
   return (

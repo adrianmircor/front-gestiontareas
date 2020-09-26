@@ -1,7 +1,6 @@
 import React from "react";
-import FormLogin from "../funcionales/usuarios/FormLogin"
+import FormLogin from "../funcionales/usuarios/FormLogin";
 import styled from "styled-components";
-
 
 const Div = styled.div`
   background-color: black;
@@ -10,7 +9,7 @@ const Div = styled.div`
   background-image: url("https://payload.cargocollective.com/1/23/742156/13538738/Google-tasks-02_750.png");
   background-repeat: no-repeat center center fixed;
   background-size: 100% 100%;
-  margin:0;
+  margin: 0;
 `;
 
 const CardDiv = styled.div`
@@ -22,13 +21,10 @@ const CardDiv = styled.div`
 `;
 
 const Login = () => {
-
- 
-
   return (
     <Div className="row justify-content-center">
       <CardDiv className="col-lg-4 col-md-5 col-sm-6 col-9 align-self-center">
-          <FormLogin></FormLogin>
+        <FormLogin></FormLogin>
       </CardDiv>
     </Div>
   );
