@@ -29,8 +29,23 @@ body {
 .titulo {
   color: white;
   text-align: center;
-  padding-top: 40px;
+  font-family: 'Lobster', cursive;
+  font-size: 30px;
+  white-space: normal;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;     /* Sólo WebKit -NO DOCUMENTADO */
+
+  -ms-hyphens: auto;          /* Guiones para separar en sílabas */
+  -moz-hyphens: auto;         /*  depende de lang en <html>      */
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
+
+.divTitulo{
+  overflow-wrap: break-word;
+}
+
 
 input {
   border-radius: 5px;
@@ -133,7 +148,7 @@ button {
   margin-right: 80px;
 }
 .longitud{
-  padding-left: 50px;
+  /* padding-left: 50px; */
   padding-top: 4px;
   font-size: 15px;
   font-weight: 900;
@@ -142,6 +157,19 @@ button {
 /*Nro de tareas*/
 
 span{
-  color: white ;
-  font-size: 15px;
+  color: black ;
 }
+
+a {
+  color: rgba(56, 60, 219, 1)
+}
+
+.close{
+  color: black ;
+
+}
+
+/*Tamaño de Modal*/
+
+
+

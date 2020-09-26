@@ -6,6 +6,7 @@ import {
   OBTENER_TAREA_SELECCIONADA,
   OBTENER_CONTENIDO,
   ORDENAR_LISTA_FECHA,
+  RECUPERAR_LISTA
 } from "../../types/index";
 
 export default (state, action) => {
@@ -16,17 +17,18 @@ export default (state, action) => {
         listatareas: [...state.listatareas, action.payload],
       };
     case ELIMINAR_TAREA:
+      //action.payload.idTarea es la 'tarea' q se envia y éste tiene como atributo idTarea
       return {
         ...state,
         listatareas: state.listatareas.filter(
-          (tarea) => tarea.id !== action.payload.id
+          (tarea) => tarea.idTarea !== action.payload.idTarea
         ),
       };
     case ACTUALIZAR_TAREA:
       return {
         ...state,
         listatareas: state.listatareas.map((tarea) => {
-          if (tarea.id === action.payload.id) {
+          if (tarea.idTarea === action.payload.idTarea) {
             return action.payload;
           }
           return tarea;
@@ -41,7 +43,7 @@ export default (state, action) => {
       return {
         ...state,
         tareaseleccionada: state.listatareas.filter((tarea) => {
-          if (tarea.id === action.payload.id) {
+          if (tarea.idTarea === action.payload.idTarea) {
             return action.payload;
           }
           return null;
@@ -58,7 +60,15 @@ export default (state, action) => {
     case ORDENAR_LISTA_FECHA:
       return {
         ...state,
-        listatareas: state.listatareas.sort( (a,b) => new Date(a.fechatarea) - new Date(b.fechatarea))
+        listatareas: state.listatareas.sort(
+          (a, b) =>  new Date(a.fecha) - new Date(b.fecha)
+        ),
+      };
+    case RECUPERAR_LISTA:
+      //Array listatareas será = al array de JSON que viene por GET 
+      return {
+        ...state,
+        listatareas: action.payload,
       };
     default:
       return state;

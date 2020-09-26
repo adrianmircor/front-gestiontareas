@@ -3,18 +3,24 @@ import "../../index.css";
 import Aside from '../layout/Aside'
 import Tablero from '../layout/Tablero'
 
+import styled from 'styled-components';
+
+const Div = styled.div`
+  min-height: 100vh;
+
+`;
 
 const Principal = () => {
   return (
     <div className="container-fluid">
-      <div className="row">
-        <div className="col-md-3 formu columna">
+      <Div className="row">
+        <div className="col-12 col-sm-12 col-md-3 formu columna">
           <Aside></Aside>
         </div>
-        <div className="col-md-9 tabler columna">
+        <div className="col-12 col-sm-12 col-md-9 tabler columna">
           <Tablero></Tablero>
         </div>
-      </div>
+      </Div>
     </div>
   );
 };
